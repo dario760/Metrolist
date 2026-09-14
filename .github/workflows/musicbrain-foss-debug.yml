@@ -1,0 +1,51 @@
+name: MusicBrain FOSS Debug APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'app/src/main/kotlin/com/metrolist/music/musicbrain/**'
+      - 'app/src/main/kotlin/com/metrolist/music/ui/screens/settings/**'
+      - 'app/src/main/kotlin/com/metrolist/music/ui/screens/NavigationBuilder.kt'
+      - 'app/src/main/res/**'
+      - 'app/build.gradle.kts'
+      - 'gradle/**'
+      - 'settings.gradle.kts'
+      - '.github/workflows/musicbrain-foss-debug.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: musicbrain-foss-debug-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build FOSS Debug APK
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Build FOSS Debug
+        run: ./gradlew --console=plain assembleFossDebug --warning-mode summary
+
+      - name: Upload FOSS Debug APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: metrolist-musicbrain-foss-debug
+          path: app/build/outputs/apk/foss/debug/*.apk
+          if-no-files-found: error
+          retention-days: 14

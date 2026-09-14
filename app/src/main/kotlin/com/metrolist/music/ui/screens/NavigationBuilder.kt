@@ -49,6 +49,7 @@ import com.metrolist.music.ui.screens.settings.AppearanceSettings
 import com.metrolist.music.ui.screens.settings.BackupAndRestore
 import com.metrolist.music.ui.screens.settings.ContentSettings
 import com.metrolist.music.ui.screens.settings.DarkMode
+import com.metrolist.music.ui.screens.settings.MusicBrainSettings
 import com.metrolist.music.ui.screens.settings.PlayerSettings
 import com.metrolist.music.ui.screens.settings.PrivacySettings
 import com.metrolist.music.ui.screens.settings.RomanizationSettings
@@ -366,6 +367,10 @@ fun NavGraphBuilder.navigationBuilder(
 
     composable("settings/ai") {
         AiSettings(navController)
+    }
+
+    composable("settings/musicbrain") {
+        MusicBrainSettings(navController)
     }
 
     composable("settings/player") {

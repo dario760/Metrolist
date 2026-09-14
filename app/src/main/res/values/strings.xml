@@ -343,4 +343,14 @@
     <string name="new_version_available">New version available</string>
     <string name="translation_models">Translation Models</string>
     <string name="clear_translation_models">Clear translation models</string>
+    <string name="musicbrain_title">MusicBrain</string>
+    <string name="musicbrain_summary">Local music discovery and recommendations</string>
+    <string name="musicbrain_options">MusicBrain options</string>
+    <string name="musicbrain_enabled">Enable MusicBrain</string>
+    <string name="musicbrain_enabled_desc">Learn from listening activity to rank related music locally.</string>
+    <string name="musicbrain_endless_radio">Endless radio</string>
+    <string name="musicbrain_endless_radio_desc">Keep the queue filled with ranked related tracks.</string>
+    <string name="musicbrain_about">About MusicBrain</string>
+    <string name="musicbrain_about_title">Private, local recommendations</string>
+    <string name="musicbrain_about_desc">MusicBrain stores its learning state on this device. Network access and playback remain controlled by Metrolist.</string>
 </resources>
